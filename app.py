@@ -252,6 +252,9 @@ class App(tk.Tk):
         self.configure(bg=BG_WHITE)
         self.resizable(False, False)
 
+        if platform.system() == "Windows" and os.path.exists("icon.ico"):
+            self.iconbitmap("icon.ico")
+
         self.saved_colors = self.load_data(SAVE_FILE)
         self.generated_history = self.load_data(GENERATED_FILE)
 

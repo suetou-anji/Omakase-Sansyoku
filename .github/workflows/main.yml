@@ -40,6 +40,14 @@ jobs:
       if: runner.os == 'Linux'
       run: pyinstaller app.py --name "おまかせ三色" --noconsole --onefile
 
+    # 7. 追加！ Readmeを完成品フォルダ(dist)にコピーする
+    - name: Copy Readme (Windows)
+      if: runner.os == 'Windows'
+      run: copy readme.txt dist\readme.txt
+    - name: Copy Readme (macOS/Linux)
+      if: runner.os != 'Windows'
+      run: cp readme.txt dist/readme.txt
+
     # 完成品のアップロード
     - name: Upload Artifact (Windows)
       if: runner.os == 'Windows'
